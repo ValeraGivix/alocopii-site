@@ -3,47 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alo Copii | Наша миссия</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    
+    <title>Alo Copii | Дарим детям любовь и надежду</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; background-color: #f9fbfd; color: #333; line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
-        header { background-color: #ffffff; padding: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); text-align: center; }
-        header h1 { margin: 0; font-size: 32px; color: #2c3e50; font-weight: 700; letter-spacing: 1px; }
-        main { flex: 1; display: flex; justify-content: center; align-items: center; padding: 40px 20px; }
-        .card { background-color: #ffffff; max-width: 800px; padding: 50px 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center; }
-        .card h2 { color: #3498db; font-size: 24px; margin-top: 0; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
-        .card p.mission-text { font-size: 18px; color: #444; margin-bottom: 40px; line-height: 1.8; }
-        .highlight { font-weight: 600; color: #2c3e50; }
-        .contacts { padding-top: 30px; border-top: 1px solid #eee; }
-        .contacts p { font-size: 15px; color: #777; margin-bottom: 20px; }
-        .btn-group { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
-        .contacts a { display: inline-block; padding: 12px 25px; text-decoration: none; color: white; background-color: #3498db; border-radius: 25px; font-weight: 600; transition: background-color 0.3s ease; }
-        .contacts a.email-btn { background-color: #e67e22; }
-        .contacts a.email-btn:hover { background-color: #d35400; }
-        .contacts a:hover { background-color: #2980b9; }
-        footer { text-align: center; padding: 20px; font-size: 14px; color: #888; }
-        @media (max-width: 600px) { .card { padding: 30px 20px; } .card p.mission-text { font-size: 16px; } .btn-group { flex-direction: column; } .contacts a { width: 100%; box-sizing: border-box; } }
+        /* Базовые стили */
+        body, html { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; color: #333; line-height: 1.6; scroll-behavior: smooth; }
+        h1, h2, h3 { margin: 0; }
+        a { text-decoration: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Шапка */
+        header { background: rgba(255, 255, 255, 0.95); position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 15px 0; }
+        .nav-wrap { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .logo { font-size: 24px; font-weight: 800; color: #2c3e50; letter-spacing: 1px; }
+        .logo span { color: #e67e22; }
+        .contact-btn { background: #3498db; color: #fff; padding: 10px 20px; border-radius: 20px; font-weight: 600; font-size: 14px; transition: 0.3s; }
+        .contact-btn:hover { background: #2980b9; }
+
+        /* Главный экран (Hero) */
+        .hero { 
+            height: 100vh; 
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover; 
+            display: flex; align-items: center; text-align: center; color: white; padding-top: 60px;
+        }
+        .hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
+        .hero p { font-size: 20px; max-width: 700px; margin: 0 auto 30px; font-weight: 400; opacity: 0.9; }
+        .hero .btn-main { background: #e67e22; color: white; padding: 15px 35px; border-radius: 30px; font-size: 18px; font-weight: 700; transition: 0.3s; display: inline-block; }
+        .hero .btn-main:hover { background: #d35400; transform: translateY(-2px); }
+
+        /* Раздел: Что мы делаем (Миссия в деталях) */
+        .mission { padding: 80px 0; background: #f9fbfd; text-align: center; }
+        .section-title { font-size: 32px; color: #2c3e50; margin-bottom: 15px; font-weight: 800; }
+        .section-subtitle { font-size: 18px; color: #7f8c8d; max-width: 600px; margin: 0 auto 50px; }
+        
+        .cards { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+        .card { background: white; padding: 40px 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); width: 30%; min-width: 250px; text-align: center; transition: 0.3s; border-bottom: 4px solid transparent; }
+        .card:hover { transform: translateY(-10px); border-bottom: 4px solid #3498db; }
+        .card .icon { font-size: 40px; margin-bottom: 20px; display: block; }
+        .card h3 { font-size: 20px; color: #2c3e50; margin-bottom: 15px; }
+        .card p { color: #555; font-size: 15px; }
+
+        /* Раздел: Сотрудничество */
+        .partner { padding: 80px 0; background: white; display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+        .partner-text { flex: 1; min-width: 300px; }
+        .partner-img { flex: 1; min-width: 300px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .partner-img img { width: 100%; display: block; }
+        .partner-text h2 { font-size: 32px; color: #2c3e50; margin-bottom: 20px; }
+        .partner-text p { color: #555; font-size: 16px; margin-bottom: 20px; }
+        .partner-text ul { padding-left: 20px; color: #555; margin-bottom: 30px; }
+        .partner-text li { margin-bottom: 10px; }
+
+        /* Подвал / Контакты */
+        footer { background: #2c3e50; color: white; padding: 60px 0 20px; }
+        .footer-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; margin-bottom: 40px; }
+        .footer-col h3 { font-size: 20px; margin-bottom: 20px; color: #e67e22; }
+        .footer-col p, .footer-col a { color: #bdc3c7; font-size: 15px; margin-bottom: 10px; display: block; transition: 0.3s; }
+        .footer-col a:hover { color: white; }
+        .copyright { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; color: #7f8c8d; font-size: 14px; }
+
+        /* Мобильная адаптация */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+            .card { width: 100%; }
+            .partner { flex-direction: column-reverse; }
+        }
     </style>
 </head>
 <body>
-    <header><h1>Alo Copii</h1></header>
-    <main>
-        <div class="card">
-            <h2>Наша миссия</h2>
-            <p class="mission-text">В сотрудничестве с церквями и христианскими организациями донести до детей послание <span class="highlight">Божьей любви</span> и помочь им возрастать нравственно, социально и духовно, благодаря влиянию мотивированных и хорошо подготовленных лидеров и волонтеров.</p>
-            <div class="contacts">
-                <p>Наш полноценный сайт находится в разработке. Вы можете связаться с нами уже сейчас:</p>
-                <div class="btn-group">
-                    <a href="mailto:info@alcopii.md" class="email-btn">info@alcopii.md</a>
-                    <a href="tel:+37300000000">Позвонить нам</a>
-                    <a href="https://facebook.com" target="_blank">Мы в Facebook</a>
+
+    <header>
+        <div class="nav-wrap">
+            <div class="logo">Alo<span>Copii</span></div>
+            <a href="#contacts" class="contact-btn">Связаться с нами</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Открываем сердца для любви и добра</h1>
+            <p>Мы помогаем детям расти нравственно, социально и духовно при поддержке сильных наставников и христианских общин.</p>
+            <a href="#about" class="btn-main">Узнать больше</a>
+        </div>
+    </section>
+
+    <section id="about" class="mission">
+        <div class="container">
+            <h2 class="section-title">Наш подход</h2>
+            <p class="section-subtitle">Мы верим, что гармоничное развитие ребенка возможно только через любовь, заботу и правильные ценности.</p>
+            
+            <div class="cards">
+                <div class="card">
+                    <span class="icon">🌱</span>
+                    <h3>Духовный рост</h3>
+                    <p>Знакомим детей с посланием Божьей любви, помогая им обрести внутреннюю опору, мир и уверенность в будущем.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">🤝</span>
+                    <h3>Социальная адаптация</h3>
+                    <p>Учим строить здоровые отношения, работать в команде и находить свое место в обществе.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">🧭</span>
+                    <h3>Нравственные ценности</h3>
+                    <p>Воспитываем честность, уважение к окружающим и ответственность за свои поступки.</p>
                 </div>
             </div>
         </div>
-    </main>
-    <footer><p>&copy; 2026 Alo Copii. Все права защищены.</p></footer>
+    </section>
+
+    <section class="partner">
+        <div class="container" style="display: flex; align-items: center; gap: 50px; flex-wrap: wrap;">
+            <div class="partner-img">
+                <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Волонтеры и дети">
+            </div>
+            <div class="partner-text">
+                <h2>Вместе мы можем больше</h2>
+                <p>Наша миссия невозможна без надежных партнеров. Мы работаем в тесном сотрудничестве с церквями и христианскими организациями.</p>
+                <ul>
+                    <li><strong>Мотивированные лидеры:</strong> Мы обучаем и подготавливаем наставников.</li>
+                    <li><strong>Волонтеры:</strong> Люди, готовые делиться своим временем и сердцем с детьми.</li>
+                    <li><strong>Общины:</strong> Создаем безопасную и любящую среду для роста.</li>
+                </ul>
+                <p>Если вы разделяете наши ценности, присоединяйтесь к команде Alo Copii!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacts">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Alo Copii</h3>
+                    <p>Доносим до детей послание любви<br>и помогаем им расти.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Контакты</h3>
+                    <a href="mailto:info@alcopii.md">✉ info@alcopii.md</a>
+                    </div>
+                <div class="footer-col">
+                    <h3>Мы в соцсетях</h3>
+                    <a href="#" target="_blank">Facebook</a>
+                    <a href="#" target="_blank">Instagram</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Организация Alo Copii. Все права защищены.
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
